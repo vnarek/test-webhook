@@ -19,7 +19,7 @@ func main() {
 func HelloServer(w http.ResponseWriter, r *http.Request) {
 	count++
 	log.Println("got request", r, " number", count)
-	if count == 5 {
+	if count > 5 {
 		panic("can't handle this many requests!")
 	}
 	_, err := fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
