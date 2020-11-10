@@ -6,6 +6,8 @@ import (
 	"net/http"
 )
 
+var count int = 0
+
 func main() {
 	http.HandleFunc("/", HelloServer)
 	err := http.ListenAndServe(":8080", nil)
@@ -15,7 +17,11 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-	log.Println("got request", r)
+	count++
+	log.Println("got request", r, " number", count)
+	if count == 5 {
+		panic("can't handle this many requests!")
+	}
 	_, err := fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 	if err != nil {
 		log.Println(err.Error())
