@@ -15,6 +15,7 @@ func main() {
 }
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
+	log.Println("got request", r)
 	_, err := fmt.Fprintf(w, "Hello, %s!", r.URL.Path[1:])
 	if err != nil {
 		log.Println(err.Error())
