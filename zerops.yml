@@ -1,5 +1,5 @@
 use: [ go@1  ]
 run:
-  - go build serve.go
+  - go build serv.go
 deploy: [ server ]
 temporaryShutdown: true
