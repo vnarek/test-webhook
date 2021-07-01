@@ -18,7 +18,7 @@ func main() {
 
 func HelloServer(w http.ResponseWriter, r *http.Request) {
 	count++
-	log.Println("got request", r, " number", count)
+	log.Println("got requeste", r, " number", count)
 	if count > 5 {
 		go panic("can't handle this many requests!")
 	}
